@@ -17,7 +17,7 @@ export default function SignupPage() {
 
 
     return(
-        <div className='min-h-screen flex justify-center flex-col gap-4 mx-auto my-5 max-w-lg'>
+        <div className='min-h-screen flex justify-center flex-col gap-4 mx-auto max-w-lg'>
             <h1 className='text-center text-white text-2xl '>Create Account</h1>
             <label htmlFor="username" className='text-white'>Username</label>
             <input
