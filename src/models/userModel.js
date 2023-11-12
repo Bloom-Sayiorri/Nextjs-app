@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-import { stringify } from 'querystring';
 
 const userSchema = new mongoose.Schema({
     username: {
@@ -24,9 +23,9 @@ const userSchema = new mongoose.Schema({
         type: 'boolean',
         default: false,
     },
-    forgotPasswordToken: string,
+    forgotPasswordToken: String,
     forgotPasswordTokenExpiry: Date,
-    verifyToken: string,
+    verifyToken: String,
     verifyTokenExpiry: Date,
 });
 
