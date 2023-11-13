@@ -2,11 +2,11 @@ import mongoose from 'mongoose';
 
 export async function connect() {
     try {
-        mongoose.connect(process.env.MONGO_URL!);
+        mongoose.connect(process.env.MONGO_URI!);
         const connection = mongoose.connection;
 
         connection.on('conneted', ()  => {
-            console.log('Mongodb connectes successfully!!')
+            console.log('Mongodb connected successfully!!')
         })
 
         connection.on('error', (err) => {

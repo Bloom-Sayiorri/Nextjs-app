@@ -3,7 +3,7 @@ import Link from 'next/link';
 import React, { useEffect } from 'react';
 import {useRouter} from 'next/navigation';
 import axios from 'axios';
-import toast from 'react-hot-toast';
+import {toast} from 'react-hot-toast';
 
 export default function SignupPage() {
     const router = useRouter();
@@ -15,17 +15,18 @@ export default function SignupPage() {
 
     const [buttonDisabled, setButtonDisabled] = React.useState(false);
     const [loading, setLoading] = React.useState(false);
+
     const onSignup = async () => {
         try {
             setLoading(true);
             const response = await axios.post('/api/users/signup', user);
             console.log('Signup successful', response.data);
-            router.push('/login')
+            router.push('/login');
         } catch (error: any) {
             console.log("Signup failed", error.message);
             toast.error(error.message);
         } finally {
-            setLoading(false)
+            setLoading(false);
         }
     };
 
@@ -41,7 +42,7 @@ export default function SignupPage() {
 
     return(
         <div className='min-h-screen flex justify-center flex-col gap-4 mx-auto max-w-lg'>
-            <h1 className='text-center text-white text-2xl '>{loading ? "Signup" : "Processing"}</h1>
+            <h1 className='text-center text-white text-2xl '>{loading ? "Processing" : "Signup"}</h1>
             <label htmlFor="username" className='text-white'>Username</label>
             <input
                 id='username'
