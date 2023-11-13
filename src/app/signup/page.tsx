@@ -13,7 +13,7 @@ export default function SignupPage() {
         username: "",
     });
 
-    const [buttonDisabled, setButtonDisabled] = React.useState(false );
+    const [buttonDisabled, setButtonDisabled] = React.useState(false);
     const [loading, setLoading] = React.useState(false);
     const onSignup = async () => {
         try {
@@ -69,9 +69,9 @@ export default function SignupPage() {
                 className="rounded-lg border-radius p-2 mb-7"
                 onChange={(e) => setUser({...user, password: e.target.value})}
             />
-            <button onClick={onSignup} className='rounded-lg border-none p-4 text-white bg-cyan-400' onSubmit={(e) => {
-                e.preventDefault();
-            }}>{buttonDisabled ? "Input fields empty" : "Signup"}</button>
+            <button onClick={onSignup} className='rounded-lg border-none p-4 text-white bg-cyan-400'>
+                {buttonDisabled ? "Input fields empty" : "Signup"}
+            </button>
             <Link href='/login'>Sign In</Link>
         </div>
     )
