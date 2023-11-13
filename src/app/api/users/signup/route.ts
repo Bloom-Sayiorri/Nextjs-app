@@ -3,9 +3,10 @@ import User from '@/models/userModel';
 import {NextRequest, NextResponse } from 'next/server';
 import bcryptjs from 'bcryptjs';
 
-connect()
 
-export default async function POST (request: NextRequest) {
+
+export async function POST(request: NextRequest) {
+    connect()
     try {
         const reqBody = await request.json();
         const {username, email, password} = reqBody
@@ -18,15 +19,12 @@ export default async function POST (request: NextRequest) {
             return NextResponse.json({error: 'User already exists!!!'},
             {status: 400});
         }
-        else if (!user) {
-            return NextResponse.json({error: 'User not found!!!'},
-            {status: 404});
-        }
 
         //hash password
         const salt = await bcryptjs.genSalt(10)
         const hashedPassword = await bcryptjs.hash(password, salt)
 
+        //saving a new user
         const newUser = new User ({
             username,
             email,
@@ -43,7 +41,7 @@ export default async function POST (request: NextRequest) {
         });
 
     } catch (error: any) {
-        return NextResponse.json({error: error.message}),
-        {status: 500}
+        return NextResponse.json({error: error.message},
+        {status: 500});
     }
 };
