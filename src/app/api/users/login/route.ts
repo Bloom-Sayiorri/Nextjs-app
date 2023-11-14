@@ -26,8 +26,16 @@ export async function POST(request: NextRequest) {
             {status: 400});
         }
 
-        //create new user
-{}    } catch (error: any) {
+        //create token data 
+        const tokenData = {
+            id: user._id,
+            usernamae: user.username,
+            email: user.email
+        }
+
+
+
+   } catch (error: any) {
         return NextResponse.json({error: error.message},
         {status: 500});
     }
