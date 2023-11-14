@@ -20,7 +20,13 @@ export async function POST(request: NextRequest) {
         }
 
         //check if password exists
+        const validPassword = await bcryptjs.compare(password, user.password)
+        if(!validPassword) {
+            return NextResponse.json({error: 'Invalid credentials!!'},
+            {status: 400});
+        }
 
+        //create new user
 {}    } catch (error: any) {
         return NextResponse.json({error: error.message},
         {status: 500});
