@@ -40,7 +40,7 @@ export default function LoginPage() {
 
     return(
         <div className='min-h-screen flex justify-center flex-col gap-4 mx-auto max-w-lg'>
-            <h1 className='text-center text-white text-2xl '>Login</h1>
+            <h1 className='text-center text-white text-2xl '>{loading ? 'Processing' : 'Login'}</h1>
             <label htmlFor='email' className='text-white'>Email</label>
             <input
                 id='email'
@@ -62,7 +62,11 @@ export default function LoginPage() {
             <button className='rounded-lg text-white bg-cyan-400 p-4' onSubmit={(e) => {
                 e.preventDefault();
             }}>Login</button>
-            <Link href='/signup'>Sign Up</Link>
+            <div className='text-lg flex justify-between items-center'>
+                <p className='text-white flex justify-start'>Have an Account?</p>
+            <Link className='text-white items-center mx-end p-2' href='/signup'>Signup Here</Link>
+            </div>
+            
        </div>
     )
 };
