@@ -61,7 +61,7 @@ export default function LoginPage() {
             />
             <button className='rounded-lg text-white bg-cyan-400 p-4' onSubmit={(e) => {
                 e.preventDefault();
-            }}>{buttonDisabled ? 'Input details' : 'Submit'}</button>
+            }}>{buttonDisabled ? 'Inputs' : 'Submit'}</button>
             <section className='text-lg flex justify-between items-center'>
                 <p className='text-white flex justify-start'>Have an Account?</p>
                 <Link className='text-white items-center mx-end p-2' href='/signup'>Signup Here</Link>
