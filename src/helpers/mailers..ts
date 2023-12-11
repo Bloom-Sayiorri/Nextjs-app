@@ -12,10 +12,15 @@ export const sendEmail = async({email, emailType, userId}: any) {
             )
         } else if (emailType === 'RESET')
         await User.findByIdAndUpdate(userId,
-            {forgotPasswordToken: hashedToken, forgotPasswordTokenExpiry: Date.now() + 3600000}, {new: true, runValidators: true}
+            {
+                forgotPasswordToken: hashedToken,
+                forgotPasswordTokenExpiry: Date.now() + 3600000
+            }
         )
         
-        const 
+        const transporter = nodemialer.createTransport({
+            
+        })
     } 
     catch (error: any) {
         throw new Error(error.message);
